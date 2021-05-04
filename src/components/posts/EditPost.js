@@ -36,7 +36,7 @@ const EditPost = () => {
     };
     return (
         <div className="card border-0 shadow">
-            <div className="card-header">Update Post</div>
+            <div className="card-header bg-dark text-white">Update Post</div>
             <div className="card-body">
                 <form onSubmit={(e) => onUpdateContact(e)}>
                     <div className="form-group">

@@ -20,9 +20,9 @@ const Post = ({ contact, selectAll }) => {
             </td>
             <td>
                 <div className="card-body">
-                    <h5 className="card-title">
+                    <h4 className="card-title">
                         {title}
-                    </h5>
+                    </h4>
                     <p className="card-title">
                         {"Category : " + category}
                     </p>

@@ -25,7 +25,7 @@ const AddContact = () => {
 
     return (
         <div className="card border-0 shadow">
-            <div className="card-header">Add a Post</div>
+            <div className="card-header bg-dark text-white">Add a Post</div>
             <div className="card-body">
                 <form onSubmit={(e) => createPost(e)}>
                     <div className="form-group">
