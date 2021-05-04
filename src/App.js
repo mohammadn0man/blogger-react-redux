@@ -5,8 +5,8 @@ import AllPosts from "./components/posts/AllPosts";
 import { povider, Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import AddContact from "./components/contacts/AddContact";
-// import EditContact  from "./components/contacts/EditContact";
+import AddPost from "./components/posts/AddPost";
+import EditPost from "./components/posts/EditPost";
 
 function App() {
   return (
@@ -18,12 +18,12 @@ function App() {
             <div className="py-3">
               <Switch>
                 <Route exact path="/" component={AllPosts} />
-                {/* <Route exact path="/post/add" component={AddContact} /> */}
-                {/* <Route
+                <Route exact path="/post/add" component={AddPost} />
+                <Route
                   exact
-                  path="/contacts/edit/:id"
-                  component={EditContact}
-                /> */}
+                  path="/post/edit/:id"
+                  component={EditPost}
+                />
               </Switch>
             </div>
           </div>

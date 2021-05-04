@@ -34,7 +34,7 @@ const Contacts = () => {
                 </button>
             ) : null}
             <table className="table shadow">
-                <thead>
+                <thead className="bg-head text-white">
                     <tr>
                         <th className="text-center">
                             <div className="custom-control custom-checkbox">

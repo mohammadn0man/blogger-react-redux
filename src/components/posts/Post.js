@@ -30,14 +30,14 @@ const Post = ({ contact, selectAll }) => {
                         {content.length > 300 ? content.substring(0, 299) + "  . . . . ." : content}
                     </p>
                     <div>
-                        <Link to={`/posts/view/${id}`} className="btn btn-light ml-auto">
+                        <Link to={`/post/view/${id}`} className="btn btn-light ml-auto">
                             View Full Post
                         </Link>
                     </div>
                 </div>
             </td>
             <td className="actions align-middle">
-                <Link to={`/posts/edit/${id}`}>
+                <Link to={`/post/edit/${id}`}>
                     <span className="material-icons mr-2 text-warning">edit</span>
                 </Link>
                 <span
