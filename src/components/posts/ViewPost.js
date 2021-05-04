@@ -11,14 +11,15 @@ const ViewPost = () => {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [content, setContent] = useState("");
-    const [like, setLike] = useState("");
+    const like = useSelector(
+        (state) => state.contact.contact.like
+    );
 
     useEffect(() => {
         if (contact != null) {
             setTitle(contact.title);
             setCategory(contact.category);
             setContent(contact.content);
-            setLike(contact.like);
         }
         dispatch(getContact(id));
     }, [contact]);
@@ -26,9 +27,6 @@ const ViewPost = () => {
     return (
         <div className="card shadow">
             <div className="card-body">
-                <h2 className="card-title">
-                    {title}
-                </h2>
                 {like ?
                     <span
                         className="material-icons text-danger"
@@ -36,7 +34,10 @@ const ViewPost = () => {
                         onClick={() => dispatch(toggleLike(id))}
                     >
                         favorite
-                        </span> :
+                        </span>
+                    : null
+                }
+                {!like ?
                     <span
                         className="material-icons text-danger"
                         style={{ float: "right" }}
@@ -44,8 +45,11 @@ const ViewPost = () => {
                     >
                         favorite_border
                         </span>
+                    : null
                 }
-                <h5 className="card-title">
+                <h2 className="card-title">
+                    {title}
+                </h2><h5 className="card-title">
                     {"Category : " + category}
                 </h5>
                 <div style={{ whiteSpace: 'pre-line' }}>
