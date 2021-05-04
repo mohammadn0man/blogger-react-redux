@@ -7,6 +7,7 @@ import store from "./store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddPost from "./components/posts/AddPost";
 import EditPost from "./components/posts/EditPost";
+import ViewPost from "./components/posts/ViewPost";
 
 function App() {
   return (
@@ -23,6 +24,11 @@ function App() {
                   exact
                   path="/post/edit/:id"
                   component={EditPost}
+                />
+                <Route
+                  exact
+                  path="/post/view/:id"
+                  component={ViewPost}
                 />
               </Switch>
             </div>
