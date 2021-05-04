@@ -6,6 +6,7 @@ import {
   SELECT_CONTACT,
   CLEAR_CONTACT,
   DELETE_SELECTED_CONTACT,
+  TOGGLE_LIKE,
 } from "../constant/types";
 
 // actions
@@ -47,3 +48,9 @@ export const clearAllContact = () => ({
 export const deleteAllContact = () => ({
   type: DELETE_SELECTED_CONTACT,
 });
+
+// like dislike
+export const toggleLike = (id) => ({
+  type: TOGGLE_LIKE,
+  payload: id,
+})

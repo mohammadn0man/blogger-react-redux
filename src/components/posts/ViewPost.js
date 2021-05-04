@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleLike } from "../../actions/postAction";
 import { getContact } from "../../actions/postAction";
 import { useParams } from "react-router-dom";
 
@@ -10,12 +11,14 @@ const ViewPost = () => {
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [content, setContent] = useState("");
+    const [like, setLike] = useState("");
 
     useEffect(() => {
         if (contact != null) {
             setTitle(contact.title);
             setCategory(contact.category);
             setContent(contact.content);
+            setLike(contact.like);
         }
         dispatch(getContact(id));
     }, [contact]);
@@ -26,6 +29,22 @@ const ViewPost = () => {
                 <h2 className="card-title">
                     {title}
                 </h2>
+                {like ?
+                    <span
+                        className="material-icons text-danger"
+                        style={{ float: "right" }}
+                        onClick={() => dispatch(toggleLike(id))}
+                    >
+                        favorite
+                        </span> :
+                    <span
+                        className="material-icons text-danger"
+                        style={{ float: "right" }}
+                        onClick={() => dispatch(toggleLike(id))}
+                    >
+                        favorite_border
+                        </span>
+                }
                 <h5 className="card-title">
                     {"Category : " + category}
                 </h5>

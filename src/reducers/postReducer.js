@@ -6,6 +6,7 @@ import {
     SELECT_CONTACT,
     CLEAR_CONTACT,
     DELETE_SELECTED_CONTACT,
+    TOGGLE_LIKE,
 } from "../constant/types";
 
 const intialState = {
@@ -414,6 +415,16 @@ export const postReducer = (state = intialState, action) => {
                 ...state,
                 selectedContacts: [],
             };
+        case TOGGLE_LIKE:
+            return {
+                ...state,
+                contacts: state.contacts.map((contact) => {
+                    if (contact.id == action.payload)
+                        contact.like = !contact.like;
+                    return contact;
+                }
+                ),
+            }
         default:
             return state;
     }

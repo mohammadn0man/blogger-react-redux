@@ -37,15 +37,17 @@ const Post = ({ contact, selectAll }) => {
                 </div>
             </td>
             <td className="actions align-middle">
-                <Link to={`/post/edit/${id}`}>
-                    <span className="material-icons mr-2 text-warning">edit</span>
-                </Link>
-                <span
-                    className="material-icons  text-danger"
-                    onClick={() => dispatch(deleteContact(id))}
-                >
-                    delete_outline
-                </span>
+                <div>
+                    <Link to={`/post/edit/${id}`}>
+                        <span className="material-icons mr-2 text-success">edit</span>
+                    </Link>
+                    <span
+                        className="material-icons text-warning"
+                        onClick={() => dispatch(deleteContact(id))}
+                    >
+                        delete_outline
+                    </span>
+                </div>
             </td>
         </tr>
     );
