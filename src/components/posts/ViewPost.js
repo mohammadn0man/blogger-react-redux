@@ -12,7 +12,9 @@ const ViewPost = () => {
     const [category, setCategory] = useState("");
     const [content, setContent] = useState("");
     const like = useSelector(
-        (state) => state.contact.contact.like
+        (state) => state.contact.contacts.filter(
+            (post) => post.id == id
+        )[0].like
     );
     let history = useHistory();
 
