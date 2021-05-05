@@ -34,6 +34,7 @@ const AddPost = () => {
                             className="form-control"
                             placeholder="Title"
                             value={name}
+                            required
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
@@ -42,6 +43,7 @@ const AddPost = () => {
                             type="text"
                             className="form-control"
                             placeholder="Category"
+                            required
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
@@ -50,6 +52,7 @@ const AddPost = () => {
                         <textarea
                             className="form-control"
                             placeholder="Content"
+                            required
                             rows="5"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
