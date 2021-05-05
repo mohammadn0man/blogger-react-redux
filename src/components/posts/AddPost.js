@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../actions/postAction";
+import { addPost } from "../../actions/postAction";
 import shortid from "shortid";
 import { useHistory } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const AddContact = () => {
             category: phone,
             content: email,
         };
-        dispatch(addContact(new_contact));
+        dispatch(addPost(new_contact));
         history.push("/");
     };
 

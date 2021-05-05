@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleLike, getContact, deleteContact } from "../../actions/postAction";
+import { toggleLike, getPost, deletePost } from "../../actions/postAction";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const ViewPost = () => {
             setCategory(contact.category);
             setContent(contact.content);
         }
-        dispatch(getContact(id));
+        dispatch(getPost(id));
     }, [contact]);
 
     return (
@@ -35,7 +35,7 @@ const ViewPost = () => {
                     className="material-icons m-2 text-warning"
                     style={{ float: "right" }}
                     onClick={() => {
-                        dispatch(deleteContact(id));
+                        dispatch(deletePost(id));
                         history.push("/");
                     }}
                 >

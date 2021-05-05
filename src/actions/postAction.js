@@ -1,52 +1,52 @@
 import {
-  CREATE_CONTACT,
-  GET_CONTACT,
-  UPDATE_CONTACT,
-  DELETE_CONTACT,
-  SELECT_CONTACT,
-  CLEAR_CONTACT,
-  DELETE_SELECTED_CONTACT,
+  CREATE_POST,
+  GET_POST,
+  UPDATE_POST,
+  DELETE_POST,
+  SELECT_POST,
+  CLEAR_POST,
+  DELETE_SELECTED_POST,
   TOGGLE_LIKE,
 } from "../constant/types";
 
 // actions
-export const addContact = (contact) => ({
-  type: CREATE_CONTACT,
-  payload: contact,
+export const addPost = (post) => ({
+  type: CREATE_POST,
+  payload: post,
 });
 
-// get a contact
-export const getContact = (id) => ({
-  type: GET_CONTACT,
+// get a post
+export const getPost = (id) => ({
+  type: GET_POST,
   payload: id,
 });
 
-// update a contact
-export const updateContact = (contact) => ({
-  type: UPDATE_CONTACT,
-  payload: contact,
+// update a post
+export const updatePost = (post) => ({
+  type: UPDATE_POST,
+  payload: post,
 });
 
-// delete a contact
-export const deleteContact = (id) => ({
-  type: DELETE_CONTACT,
+// delete a post
+export const deletePost = (id) => ({
+  type: DELETE_POST,
   payload: id,
 });
 
-// select all contact
-export const selectAllContact = (id) => ({
-  type: SELECT_CONTACT,
+// select all post
+export const selectAllPost = (id) => ({
+  type: SELECT_POST,
   payload: id,
 });
 
 // clear selected contacts
-export const clearAllContact = () => ({
-  type: CLEAR_CONTACT,
+export const clearAllPost = () => ({
+  type: CLEAR_POST,
 });
 
 // delete selected contacts
-export const deleteAllContact = () => ({
-  type: DELETE_SELECTED_CONTACT,
+export const deleteAllPost = () => ({
+  type: DELETE_SELECTED_POST,
 });
 
 // like dislike

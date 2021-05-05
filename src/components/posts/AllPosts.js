@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Post from "./Post";
 import {
-    selectAllContact,
-    clearAllContact,
-    deleteAllContact,
+    selectAllPost,
+    clearAllPost,
+    deleteAllPost,
 } from "../../actions/postAction";
 
 const Contacts = () => {
@@ -17,9 +17,9 @@ const Contacts = () => {
 
     useEffect(() => {
         if (selectAll) {
-            dispatch(selectAllContact(contacts.map((contact) => contact.id)));
+            dispatch(selectAllPost(contacts.map((contact) => contact.id)));
         } else {
-            dispatch(clearAllContact());
+            dispatch(clearAllPost());
         }
     }, [selectAll]);
 
@@ -28,7 +28,7 @@ const Contacts = () => {
             {selctedContcats.length > 0 ? (
                 <button
                     className="btn btn-danger mb-3"
-                    onClick={() => dispatch(deleteAllContact())}
+                    onClick={() => dispatch(deleteAllPost())}
                 >
                     delete all
                 </button>

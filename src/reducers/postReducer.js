@@ -1,11 +1,11 @@
 import {
-    CREATE_CONTACT,
-    GET_CONTACT,
-    UPDATE_CONTACT,
-    DELETE_CONTACT,
-    SELECT_CONTACT,
-    CLEAR_CONTACT,
-    DELETE_SELECTED_CONTACT,
+    CREATE_POST,
+    GET_POST,
+    UPDATE_POST,
+    DELETE_POST,
+    SELECT_POST,
+    CLEAR_POST,
+    DELETE_SELECTED_POST,
     TOGGLE_LIKE,
 } from "../constant/types";
 
@@ -368,12 +368,12 @@ const intialState = {
 
 export const postReducer = (state = intialState, action) => {
     switch (action.type) {
-        case CREATE_CONTACT:
+        case CREATE_POST:
             return {
                 ...state,
                 contacts: [action.payload, ...state.contacts],
             };
-        case GET_CONTACT:
+        case GET_POST:
             let arr = state.contacts.filter(
                 (contact) => contact.id == action.payload
             );
@@ -385,32 +385,32 @@ export const postReducer = (state = intialState, action) => {
                 ...state,
                 contact: arr,
             };
-        case UPDATE_CONTACT:
+        case UPDATE_POST:
             return {
                 ...state,
                 contacts: state.contacts.map((contact) =>
                     contact.id == action.payload.id ? action.payload : contact
                 ),
             };
-        case DELETE_CONTACT:
+        case DELETE_POST:
             return {
                 ...state,
                 contacts: state.contacts.filter(
                     (contact) => contact.id != action.payload
                 ),
             };
-        case DELETE_SELECTED_CONTACT:
+        case DELETE_SELECTED_POST:
             return {
                 ...state,
                 contacts: [],
             };
-        case SELECT_CONTACT:
+        case SELECT_POST:
             return {
                 ...state,
                 selectedContacts: action.payload,
             };
 
-        case CLEAR_CONTACT:
+        case CLEAR_POST:
             return {
                 ...state,
                 selectedContacts: [],

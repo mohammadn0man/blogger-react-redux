@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getContact, updateContact } from "../../actions/postAction";
+import { getPost, updatePost } from "../../actions/postAction";
 import { useHistory, useParams } from "react-router-dom";
 
 const EditPost = () => {
@@ -18,10 +18,10 @@ const EditPost = () => {
             setPhone(contact.category);
             setEmail(contact.content);
         }
-        dispatch(getContact(id));
+        dispatch(getPost(id));
     }, [contact]);
 
-    const onUpdateContact = (e) => {
+    const onUpdatePost = (e) => {
         e.preventDefault();
 
         const update_contact = Object.assign(contact, {
@@ -30,14 +30,14 @@ const EditPost = () => {
             content: content,
         });
 
-        dispatch(updateContact(update_contact));
+        dispatch(updatePost(update_contact));
         history.push("/")
     };
     return (
         <div className="card border-0 shadow">
             <div className="card-header bg-dark text-white">Update Post</div>
             <div className="card-body">
-                <form onSubmit={(e) => onUpdateContact(e)}>
+                <form onSubmit={(e) => onUpdatePost(e)}>
                     <div className="form-group">
                         <input
                             type="text"

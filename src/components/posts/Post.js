@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { deleteContact } from "../../actions/postAction";
+import { deletePost } from "../../actions/postAction";
 import { useDispatch } from "react-redux";
 
 const Post = ({ contact, selectAll }) => {
@@ -43,7 +43,7 @@ const Post = ({ contact, selectAll }) => {
                     </Link>
                     <span
                         className="material-icons text-warning"
-                        onClick={() => dispatch(deleteContact(id))}
+                        onClick={() => dispatch(deletePost(id))}
                     >
                         delete_outline
                     </span>
