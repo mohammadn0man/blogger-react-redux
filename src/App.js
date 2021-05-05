@@ -2,7 +2,7 @@ import React from "react";
 import "./style/App.scss";
 import NavBar from "./components/elements/NavBar";
 import AllPosts from "./components/posts/AllPosts";
-import { povider, Provider } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddPost from "./components/posts/AddPost";

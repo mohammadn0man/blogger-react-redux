@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleLike } from "../../actions/postAction";
-import { getContact } from "../../actions/postAction";
-import { useParams } from "react-router-dom";
+import { toggleLike, getContact, deleteContact } from "../../actions/postAction";
+import { useParams, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ViewPost = () => {
     let { id } = useParams();
@@ -14,6 +14,8 @@ const ViewPost = () => {
     const like = useSelector(
         (state) => state.contact.contact.like
     );
+    let history = useHistory();
+
 
     useEffect(() => {
         if (contact != null) {
@@ -27,25 +29,39 @@ const ViewPost = () => {
     return (
         <div className="card shadow">
             <div className="card-body">
+                <span
+                    className="material-icons m-2 text-warning"
+                    style={{ float: "right" }}
+                    onClick={() => {
+                        dispatch(deleteContact(id));
+                        history.push("/");
+                    }}
+                >
+                    delete_outline
+                </span>
+                <Link to={`/post/edit/${id}`}>
+                    <span
+                        className="material-icons m-2 text-success"
+                        style={{ float: "right" }}
+                    >
+                        edit
+                    </span>
+                </Link>
                 {like ?
                     <span
-                        className="material-icons text-danger"
+                        className="material-icons m-2 text-danger"
                         style={{ float: "right" }}
                         onClick={() => dispatch(toggleLike(id))}
                     >
                         favorite
                         </span>
-                    : null
-                }
-                {!like ?
-                    <span
-                        className="material-icons text-danger"
+                    : <span
+                        className="material-icons m-2 text-danger"
                         style={{ float: "right" }}
                         onClick={() => dispatch(toggleLike(id))}
                     >
                         favorite_border
                         </span>
-                    : null
                 }
                 <h2 className="card-title">
                     {title}
