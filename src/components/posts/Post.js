@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { deletePost } from "../../actions/postAction";
 import { useDispatch } from "react-redux";
 
-const Post = ({ contact, selectAll }) => {
+const Post = ({ post, selectAll }) => {
     const dispatch = useDispatch();
-    const { title, category, content, id } = contact;
+    const { title, category, content, id } = post;
     return (
         <tr>
             <td className="align-middle">

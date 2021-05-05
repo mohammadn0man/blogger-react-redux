@@ -10,7 +10,7 @@ import {
 } from "../constant/types";
 
 const intialState = {
-    contacts: [
+    posts: [
         {
             "id": 12770,
             "title": "Veniam quisquam veniam odio non soluta occaecati.",
@@ -362,8 +362,8 @@ const intialState = {
             "like": false
         }
     ],
-    contact: null,
-    selectedContacts: [],
+    post: null,
+    selectedPosts: [],
 };
 
 export const postReducer = (state = intialState, action) => {
@@ -371,11 +371,11 @@ export const postReducer = (state = intialState, action) => {
         case CREATE_POST:
             return {
                 ...state,
-                contacts: [action.payload, ...state.contacts],
+                posts: [action.payload, ...state.posts],
             };
         case GET_POST:
-            let arr = state.contacts.filter(
-                (contact) => contact.id == action.payload
+            let arr = state.posts.filter(
+                (post) => post.id == action.payload
             );
             arr = arr.values();
             for (let val of arr) {
@@ -383,45 +383,45 @@ export const postReducer = (state = intialState, action) => {
             }
             return {
                 ...state,
-                contact: arr,
+                post: arr,
             };
         case UPDATE_POST:
             return {
                 ...state,
-                contacts: state.contacts.map((contact) =>
-                    contact.id == action.payload.id ? action.payload : contact
+                posts: state.posts.map((post) =>
+                    post.id == action.payload.id ? action.payload : post
                 ),
             };
         case DELETE_POST:
             return {
                 ...state,
-                contacts: state.contacts.filter(
-                    (contact) => contact.id != action.payload
+                posts: state.posts.filter(
+                    (post) => post.id != action.payload
                 ),
             };
         case DELETE_SELECTED_POST:
             return {
                 ...state,
-                contacts: [],
+                posts: [],
             };
         case SELECT_POST:
             return {
                 ...state,
-                selectedContacts: action.payload,
+                selectedPosts: action.payload,
             };
 
         case CLEAR_POST:
             return {
                 ...state,
-                selectedContacts: [],
+                selectedPosts: [],
             };
         case TOGGLE_LIKE:
             return {
                 ...state,
-                contacts: state.contacts.map((contact) => {
-                    if (contact.id == action.payload)
-                        contact.like = !contact.like;
-                    return contact;
+                posts: state.posts.map((post) => {
+                    if (post.id == action.payload)
+                        post.like = !post.like;
+                    return post;
                 }
                 ),
             }

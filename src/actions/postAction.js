@@ -39,12 +39,12 @@ export const selectAllPost = (id) => ({
   payload: id,
 });
 
-// clear selected contacts
+// clear selected posts
 export const clearAllPost = () => ({
   type: CLEAR_POST,
 });
 
-// delete selected contacts
+// delete selected posts
 export const deleteAllPost = () => ({
   type: DELETE_SELECTED_POST,
 });

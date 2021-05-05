@@ -7,30 +7,30 @@ const EditPost = () => {
     let { id } = useParams();
     let history = useHistory();
     const dispatch = useDispatch();
-    const contact = useSelector((state) => state.contact.contact);
+    const post = useSelector((state) => state.post.post);
     const [title, setName] = useState("");
     const [content, setEmail] = useState("");
     const [category, setPhone] = useState("");
 
     useEffect(() => {
-        if (contact != null) {
-            setName(contact.title);
-            setPhone(contact.category);
-            setEmail(contact.content);
+        if (post != null) {
+            setName(post.title);
+            setPhone(post.category);
+            setEmail(post.content);
         }
         dispatch(getPost(id));
-    }, [contact]);
+    }, [post]);
 
     const onUpdatePost = (e) => {
         e.preventDefault();
 
-        const update_contact = Object.assign(contact, {
+        const update_post = Object.assign(post, {
             title: title,
             category: category,
             content: content,
         });
 
-        dispatch(updatePost(update_contact));
+        dispatch(updatePost(update_post));
         history.push("/")
     };
     return (

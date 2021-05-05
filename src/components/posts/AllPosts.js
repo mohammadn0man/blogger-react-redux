@@ -7,17 +7,17 @@ import {
     deleteAllPost,
 } from "../../actions/postAction";
 
-const Contacts = () => {
+const AllPosts = () => {
     const dispatch = useDispatch();
     const [selectAll, setSelectAll] = useState(false);
-    const contacts = useSelector((state) => state.contact.contacts);
-    const selctedContcats = useSelector(
-        (state) => state.contact.selectedContacts
+    const posts = useSelector((state) => state.post.posts);
+    const selectedPosts = useSelector(
+        (state) => state.post.selectedPosts
     );
 
     useEffect(() => {
         if (selectAll) {
-            dispatch(selectAllPost(contacts.map((contact) => contact.id)));
+            dispatch(selectAllPost(posts.map((post) => post.id)));
         } else {
             dispatch(clearAllPost());
         }
@@ -25,7 +25,7 @@ const Contacts = () => {
 
     return (
         <div>
-            {selctedContcats.length > 0 ? (
+            {selectedPosts.length > 0 ? (
                 <button
                     className="btn btn-danger mb-3"
                     onClick={() => dispatch(deleteAllPost())}
@@ -56,8 +56,8 @@ const Contacts = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {contacts.map((contact) => (
-                        <Post contact={contact} key={contact.id} selectAll={selectAll} />
+                    {posts.map((post) => (
+                        <Post post={post} key={post.id} selectAll={selectAll} />
                     ))}
                 </tbody>
             </table>
@@ -65,4 +65,4 @@ const Contacts = () => {
     );
 };
 
-export default Contacts;
+export default AllPosts;

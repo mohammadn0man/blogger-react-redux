@@ -4,7 +4,7 @@ import { addPost } from "../../actions/postAction";
 import shortid from "shortid";
 import { useHistory } from "react-router-dom";
 
-const AddContact = () => {
+const AddPost = () => {
     let history = useHistory();
     const dispatch = useDispatch();
     const [name, setName] = useState("");
@@ -13,13 +13,13 @@ const AddContact = () => {
 
     const createPost = (e) => {
         e.preventDefault();
-        const new_contact = {
+        const new_post = {
             id: shortid.generate(),
             title: name,
             category: phone,
             content: email,
         };
-        dispatch(addPost(new_contact));
+        dispatch(addPost(new_post));
         history.push("/");
     };
 
@@ -64,4 +64,4 @@ const AddContact = () => {
     );
 };
 
-export default AddContact;
+export default AddPost;

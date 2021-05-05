@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 const ViewPost = () => {
     let { id } = useParams();
     const dispatch = useDispatch();
-    const contact = useSelector((state) => state.contact.contact);
+    const post = useSelector((state) => state.post.post);
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [content, setContent] = useState("");
     const like = useSelector(
-        (state) => state.contact.contacts.filter(
+        (state) => state.post.posts.filter(
             (post) => post.id == id
         )[0].like
     );
@@ -20,13 +20,13 @@ const ViewPost = () => {
 
 
     useEffect(() => {
-        if (contact != null) {
-            setTitle(contact.title);
-            setCategory(contact.category);
-            setContent(contact.content);
+        if (post != null) {
+            setTitle(post.title);
+            setCategory(post.category);
+            setContent(post.content);
         }
         dispatch(getPost(id));
-    }, [contact]);
+    }, [post]);
 
     return (
         <div className="card shadow">
