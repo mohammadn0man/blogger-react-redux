@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+                sh 'npm i node-sass'
                 sh 'npm install' 
+                sh 'npm audit fix'
                 sh 'npm run build'
             }   
         }
