@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh' ls -l ./jenkins/scripts/test.sh'
+                sh' ls -l ./jenkins/scripts'
                 sh './jenkins/scripts/test.sh'
             }
         }
