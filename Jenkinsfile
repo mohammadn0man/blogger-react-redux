@@ -1,20 +1,31 @@
 pipeline {
-    agent any
-    tools {nodejs "node"}
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm update'
-                sh 'npm install' 
-                sh 'npm audit fix'
-                sh 'npm run build'
-            }   
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
         }
-        stage('Deploy') {
-            steps{
-                sh 'rm -rf /var/www/react-blog-app'
-                sh 'cp -r ${WORKSPACE}/build/ /var/www/react-blog-app'
+    }
+     environment {
+            CI = 'true'
+        }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
             }
         }
+        stage('Test') {
+            steps {
+                sh './jenkins/scripts/test.sh'
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './jenkins/scripts/kill.sh'
+            }
+        }
+
     }
 }
