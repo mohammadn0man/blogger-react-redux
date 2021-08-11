@@ -1,6 +1,6 @@
 pipeline {
-
-try {
+agent any
+stages {
     stage('Checkout') {
       checkout scm
     }
@@ -27,9 +27,6 @@ try {
         sh 'docker rmi -f react-app localhost:5000/react-app'
       }
     }
-  }
-  catch (err) {
-    throw err
   }
 
     // agent {
